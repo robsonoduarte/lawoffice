@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.prime.com.tr/ui"
+    template="/WEB-INF/templates/template.xhtml">
+    
+  <ui:define name="title">Débito</ui:define>
+  
+  <ui:define name="body">
+    
+		<div id="debito" >
+			
+			<p:tabView style="border-bottom: none;"
+				onTabChange="nofificationBarCliente.hide();nofificationBarColaborador.hide()">
+														
+				<p:tab title="Cliente">
+					<h:form prependId="false">		
+						<ui:include src="/caixa/elements/debito/debito-cliente.xhtml"></ui:include>
+					</h:form>
+				</p:tab>
+				
+				<p:tab title="Colaborador">
+					<h:form prependId="false">
+						<ui:include src="/caixa/elements/debito/debito-colaborador.xhtml"></ui:include>
+					</h:form>								
+				</p:tab>								
+			
+			</p:tabView>
+		</div>
+	
+  </ui:define>
+  
+</ui:composition>

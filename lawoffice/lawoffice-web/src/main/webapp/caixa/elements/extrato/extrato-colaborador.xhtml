@@ -1,0 +1,88 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.prime.com.tr/ui">
+
+    	
+  	 	<div id="filtros" >
+			<div id="divInput">
+			
+			<ui:include src="/caixa/elements/extrato/filtro-datas.xhtml"></ui:include>
+				
+				<div>
+					<h:outputLabel value="Colaborador: " for="cliente"/>
+					<p:autoComplete id="colaborador"
+						value="#{extratoMB.colaborador}"
+						completeMethod="#{extratoMB.listarColaboradores}"
+						var="colaborador"
+						itemLabel="#{colaborador.nome}"
+						itemValue="#{colaborador}"
+						converter="colaboradorConverter"
+						validator="colaboradorValidator"
+						onkeypress="nofificationBar.hide()"
+						size="30"
+						/>
+				</div>
+	  			
+				<div style="padding-top: 12px;">
+					<p:commandButton value="Pesquisar" 
+						id="btnPesquisarExtratoColaborador"
+						action="#{extratoMB.pesquisarExtratoColaborador}" 
+						update="panelGridExtratoColaborador msg"
+						oncomplete="showHideNotificationBar()"
+						/>										
+				</div>	  			
+	  						
+			</div> 
+			<div style="clear: both;"></div> 			
+  		</div>
+  		
+  		<div class="divContent" > 
+  			<h:panelGrid id="panelGridExtratoColaborador" style="width: 100%;">  		
+	  			<p:dataTable 
+	  				value="#{extratoMB.extratoDTO.itensExtrato}"
+	  				var="itenExtrato"
+	  				id="tableItensExtratoColaborador"
+	  				paginator="true"
+	  				paginatorPosition="bottom"
+	  				rows="15"
+	  				rendered="#{not empty extratoMB.extratoDTO.itensExtrato}"
+	  				>  			
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Data" /> 
+							</f:facet>
+							<h:outputText value="#{itenExtrato.dataLancamento}" >
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+							</h:outputText>
+							
+						</p:column>  			
+	  			
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Natureza" /> 
+							</f:facet>
+							<h:outputText value="#{itenExtrato.natureza}" />
+						</p:column>
+	
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Valor" /> 
+							</f:facet>
+							<h:outputText value="#{itenExtrato.valor}" >
+								<f:convertNumber pattern="R$ ###,###,###,##0.00" locale="pt_BR"/>
+							</h:outputText>
+						</p:column>
+						
+						<f:facet name="footer">
+							Saldo Atual =
+							<h:outputText value="#{extratoMB.extratoDTO.saldoAtual}" styleClass="#{extratoMB.extratoDTO.saldoAtual lt 0 ? 'negativo' : 'positivo'}">
+								<f:convertNumber pattern="R$ ###,###,###,##0.00" locale="pt_BR"/>
+							</h:outputText>
+						</f:facet>  			
+	  			</p:dataTable>
+  			</h:panelGrid>		
+  		</div>
+  
+</ui:composition>

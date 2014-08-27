@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.prime.com.tr/ui"
+    template="/WEB-INF/templates/template.xhtml">
+    
+  <ui:define name="title">Agendamentos</ui:define>
+  
+  <ui:define name="body">	
+      
+		<h:form>
+			<p:schedule value="#{agendaMB.scheduleModel}" 
+				 editable="true"
+				 dateSelectListener="#{agendaMB.onDataSelecionada}"
+				 eventSelectListener="#{agendaMB.onEventoSelecionado}"
+ 				 eventMoveListener="#{agendaMB.onEventoMovido}"
+                 eventResizeListener="#{agendaMB.onEventoRedimensionado}"				 
+				 onDateSelectComplete="eventoDialog.show()"				 
+				 onEventSelectComplete="eventoDialog.show()"
+				 onEventSelectUpdate="titulo"
+				 aspectRatio="2"
+				 allDaySlot="false"
+				 id="schedule"
+				 >						
+			</p:schedule>
+			
+			<p:dialog widgetVar="eventoDialog" hideEffect="clip" showEffect="clip" id="teste">
+			
+ 				<div>
+				 					
+				 	<div >
+						<h:outputLabel value="Titulo:" for="titulo"/>
+						<h:inputText value="#{agendaMB.eventoAdapter.title}" id="titulo"/>				 	
+				 	</div>
+				 	
+				 	<div>
+						<p:commandButton 
+							value="Salvar"  
+							action="#{agendaMB.salvarEvento}" 
+							oncomplete="eventoDialog.hide()"
+							update="schedule"
+						/>				 	
+				 	</div>
+				</div>
+			
+	 			
+			</p:dialog>			
+		</h:form>
+		
+  </ui:define>
+  
+</ui:composition>

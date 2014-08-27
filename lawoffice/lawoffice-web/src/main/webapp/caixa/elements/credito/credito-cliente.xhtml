@@ -1,0 +1,57 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.prime.com.tr/ui">
+    
+	<div id="dados">
+					
+		<div id="divInput">
+		
+			<div>
+				<h:outputLabel value="Cliente:" for="cliente"/>
+				<p:autoComplete id="cliente"
+					value="#{creditoMB.cliente}"
+					completeMethod="#{creditoMB.listarClientes}"
+					var="cliente"
+					itemLabel="#{cliente.nome}"
+					itemValue="#{cliente}"
+					converter="clienteConverter"
+					onkeypress="nofificationBarCliente.hide()"
+					validator="clienteValidator"		
+					size="30"	
+					/>
+			</div>			
+		
+			<div>
+				<h:outputLabel value="Valor:" for="valorCliente"/>
+				<p:inputText  value="#{creditoMB.valor}" 
+					id="valorCliente" 
+					size="10"
+					onkeypress="nofificationBarCliente.hide()"
+					validator="valorValidator"
+					/>						
+			</div>
+								
+			<div style="padding-top: 12px;">
+				<p:commandButton 
+					action="#{creditoMB.creditarCliente}" 
+					value="Creditar"
+					onsuccess="nofificationBarCliente.show()"
+					update="msgCliente" 
+					/>
+			</div>
+			
+		</div>
+					
+		<div style="clear: both;"></div>
+							
+	</div>
+	
+	<ui:include src="/caixa/elements/notification-bar/notification-bar-cliente.xhtml"></ui:include>
+			
+</ui:composition>
+
+
+

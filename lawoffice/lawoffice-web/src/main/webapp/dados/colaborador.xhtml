@@ -1,0 +1,136 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.prime.com.tr/ui"
+    template="/WEB-INF/templates/template.xhtml">
+    
+  <ui:define name="title">Colaborador</ui:define>
+  
+  <ui:define name="body">
+  
+		<h:form prependId="false">
+			
+			<div id="dadosColaborador">
+				
+				<div id="listaDados" class="divContent">
+				
+					<div>
+					
+						<p:dataTable
+							value="#{colaboradorMB.listColaboradores}"
+							var="colaborador" 
+							id="tableColaboradores"
+							selection="#{colaboradorMB.colaboradorSelecionado}" 
+							selectionMode="single"
+			  				paginator="true"
+			  				paginatorPosition="bottom"
+			  				onselectComplete="temp()"
+			  				rows="15"							 
+							>
+						
+							<p:column sortBy="#{colaborador.id}">
+								<f:facet name="header">
+									<h:outputText value="Número" /> 
+								</f:facet>
+								<h:outputText value="#{colaborador.id}" />
+							</p:column>			
+						
+							<p:column sortBy="#{colaborador.nome}">
+								<f:facet name="header">
+									<h:outputText value="Nome" /> 
+								</f:facet>
+								<h:outputText value="#{colaborador.nome}" />
+							</p:column>
+							
+							<p:column sortBy="#{colaborador.cargo}">
+								<f:facet name="header">
+									<h:outputText value="Cargo" /> 
+								</f:facet>
+								<h:outputText value="#{colaborador.cargo}" />
+							</p:column>							
+							
+							<p:column sortBy="#{colaborador.email}">
+								<f:facet name="header">
+									<h:outputText value="Email" /> 
+								</f:facet>
+								<h:outputText value="#{colaborador.email}" />
+							</p:column>																		
+						</p:dataTable>
+											
+					</div>
+					
+					<div class="divContent">
+					
+						<p:commandButton value="Novo" 
+							action="#{colaboradorMB.novoColaborador}"
+							id="btnNovo" 
+							update="nome email cargo"
+							oncomplete="onClickBtnNovo()"
+							/>					
+						
+						
+						<p:commandButton value="Editar" 
+							action="#{colaboradorMB.editarColaborador}" 
+							id="btnEditar"
+							update="nome email cargo"
+							oncomplete="onClickBtnEditar()" 
+						/>					
+
+
+					</div>
+										
+				</div>
+				
+				<div id="dados" style="display: none;">
+				
+					<div>
+					
+						<p>
+							<h:outputLabel value="Nome:"  for="nome"/>
+							<p:inputText value="#{colaboradorMB.colaborador.nome}" id="nome" size="60"/>
+						</p>
+						
+						<p>
+							<h:outputLabel value="Cargo:"  for="cargo"/>
+							<p:inputText value="#{colaboradorMB.colaborador.cargo}" id="cargo" size="60"/>
+						</p>						
+					
+						<p>
+							<h:outputLabel value="Email:"  for="email"/>
+							<p:inputText value="#{colaboradorMB.colaborador.email}" id="email" size="60"/>
+						</p>									
+					</div>
+				
+					<div class="divContent">
+						<p:commandButton value="Salvar" 
+							action="#{colaboradorMB.adicionarColaborador}" 
+							id="btnSalvarNovo"
+							update="tableColaboradores"
+							oncomplete="onClickBtnSalvar()" 
+						/>					
+												
+						<p:commandButton value="Salvar" 
+							action="#{colaboradorMB.atualizarColaborador}" 
+							id="btnSalvarEditar"
+							update="tableColaboradores"
+							oncomplete="onClickBtnSalvar()" 
+						/>					
+
+						<p:commandButton value="Cancelar"
+							id="btnCancelar"
+							onclick="onClickBtnCancelar()"
+						/>	
+					</div>											
+				</div>
+				
+			</div>
+							
+		</h:form>		
+  </ui:define>
+  
+  <ui:define name="js">
+  	<h:outputScript name="dados.js" library="js"/>
+  </ui:define>  
+  
+</ui:composition>
