@@ -10,6 +10,18 @@
   <name>lawoffice</name>
   <url>http://maven.apache.org</url>
 
+  
+  <modules>
+		<module>../lawoffice-agenda	</module>
+		<module>../lawoffice-caixa</module>
+		<module>../lawoffice-custas</module>
+		<module>../lawoffice-dados</module>
+		<module>../lawoffice-dominio</module>
+		<module>../lawoffice-ear</module>
+		<module>../lawoffice-persistencia</module>
+		<module>../lawoffice-web</module>
+	</modules>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -67,14 +79,5 @@
   		<scope>test</scope>
   	</dependency>
   </dependencies>
-	<modules>
-		<module>lawoffice-custas</module>
-		<module>lawoffice-web</module>
-		<module>lawoffice-dominio</module>
-		<module>lawoffice-caixa</module>
-		<module>lawoffice-agenda</module>
-		<module>lawoffice-ear</module>
-		<module>lawoffice-dados</module>
-		<module>lawoffice-persistencia</module>
-	</modules>
+
 </project>
