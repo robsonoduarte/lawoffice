@@ -17,12 +17,12 @@
       <class>br.com.lawoffice.dominio.Agenda</class>
       <class>br.com.lawoffice.dominio.Evento</class>
 
-      <properties>
+      
 		<properties>
 	       <property name="hibernate.hbm2ddl.auto" value="update" />
 	       <property name="hibernate.show_sql" value="false" />
 	       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 	    </properties>
-      </properties>
+     
    </persistence-unit>
 </persistence>
