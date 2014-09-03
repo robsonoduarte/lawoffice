@@ -35,7 +35,7 @@ public class ColaboradorConverter implements Converter {
 		try {
 			Context context = new InitialContext();
 			pessoaServiceLocal =
-					(PessoaServiceLocal) context.lookup("java:global/lawoffice-ear/lawoffice-dados-1.0.1-SNAPSHOT/PessoaServiceBean!br.com.lawoffice.dados.PessoaServiceLocal");
+					(PessoaServiceLocal) context.lookup("java:global/app/lawoffice-dados-1.0.1-SNAPSHOT/PessoaServiceBean!br.com.lawoffice.dados.PessoaServiceLocal");
 		} catch (NamingException e) {
 			throw new RuntimeException(e);
 		}
