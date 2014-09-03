@@ -4,7 +4,7 @@
   <parent>
     <artifactId>lawoffice</artifactId>
     <groupId>br.com</groupId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 	<relativePath>../lawoffice</relativePath>
   </parent>
 
@@ -19,7 +19,7 @@
         <dependency>
         	<groupId>br.com</groupId>
         	<artifactId>lawoffice-dominio</artifactId>
-        	<version>${parent.version}</version>
+        	<version>${project.parent.version}</version>
         	<scope>provided</scope>
         </dependency>
         
