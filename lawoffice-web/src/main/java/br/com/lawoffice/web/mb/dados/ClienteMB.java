@@ -65,7 +65,7 @@ public class ClienteMB extends BaseMB {
 	 */
 	@PostConstruct
 	public void init(){
-		listarClientes();
+		/*listarClientes();*/
 		cliente = new Cliente();
 	}
 	
