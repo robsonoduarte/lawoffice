@@ -60,13 +60,20 @@ public class ClienteMB extends BaseMB {
 	private PessoaServiceLocal pessoaServiceLocal;
 	
 	
+	
+	
+
+	public ClienteMB() {
+		listarClientes();
+		cliente = new Cliente();
+	}
+
+
 	/**
 	 * inicializa os objetos necessarios do mb no contexto do JSF. 
 	 */
 	@PostConstruct
 	public void init(){
-		/*listarClientes();*/
-		cliente = new Cliente();
 	}
 	
 	
