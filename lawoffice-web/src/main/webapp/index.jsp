@@ -1,1 +1,1 @@
-<jsp:forward page="/custas/lancamento.html" />
+<% response.sendRedirect("custas/lancamento.html"); %>
