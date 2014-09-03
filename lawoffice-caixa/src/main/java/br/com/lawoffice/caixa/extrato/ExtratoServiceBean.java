@@ -11,7 +11,6 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Remote;
 import javax.ejb.Stateful;
 
 import br.com.lawoffice.caixa.extrato.jasper.SimpleFactoryExtratoReportJasper;
@@ -38,7 +37,7 @@ import br.com.lawoffice.persistencia.LancamentoDao;
  */
 @Stateful
 @Local(ExtratoServiceLocal.class)
-@Remote(ExtratoServiceRemote.class)
+/*@Remote(ExtratoServiceRemote.class)*/
 public class ExtratoServiceBean implements ExtratoService{
 
 

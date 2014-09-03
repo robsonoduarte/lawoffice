@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import br.com.lawoffice.dominio.Conta;
@@ -21,7 +20,7 @@ import br.com.lawoffice.persistencia.ContaDao;
  */
 @Stateless
 @Local(CaixaServiceLocal.class)
-@Remote(CaixaServiceRemote.class)
+/*@Remote(CaixaServiceRemote.class)*/
 public class CaixaServiceBean implements CaixaService {
 	
 

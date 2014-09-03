@@ -11,7 +11,6 @@ import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Remote;
 import javax.ejb.Stateful;
 
 import br.com.lawoffice.caixa.CaixaServiceLocal;
@@ -30,7 +29,7 @@ import br.com.lawoffice.persistencia.PessoaDao;
  */
 @Stateful
 @Local(LancamentoServiceLocal.class)
-@Remote(LancamentoServiceRemote.class)
+/*@Remote(LancamentoServiceRemote.class)*/
 public class LancamentoServiceBean implements LancamentoService {
 	
 	

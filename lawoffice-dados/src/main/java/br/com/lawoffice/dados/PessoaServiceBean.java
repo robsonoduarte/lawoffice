@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import br.com.lawoffice.dominio.Cliente;
@@ -27,7 +26,7 @@ import br.com.lawoffice.persistencia.PessoaDao;
  */
 @Stateless
 @Local(PessoaServiceLocal.class)
-@Remote(PessoaServiceRemote.class)
+/*@Remote(PessoaServiceRemote.class)*/
 public class PessoaServiceBean  implements PessoaService {
 
 

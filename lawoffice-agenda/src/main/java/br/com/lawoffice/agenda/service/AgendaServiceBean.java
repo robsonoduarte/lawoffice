@@ -8,7 +8,6 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import br.com.lawoffice.dominio.Colaborador;
@@ -24,7 +23,7 @@ import br.com.lawoffice.persistencia.EventoDao;
  */
 @Stateless
 @Local(AgendaServiceLocal.class)
-@Remote(AgendaServiceRemote.class)
+/*@Remote(AgendaServiceRemote.class)*/
 public class AgendaServiceBean implements AgendaService {
 
 	
