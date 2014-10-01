@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee        http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+ <navigation-rule id="menu">
+  <display-name>menu</display-name>
+  <navigation-case>
+   <from-outcome>lancamento</from-outcome>
+   <to-view-id>/custas/lancamento.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>agendamentos</from-outcome>
+   <to-view-id>/agenda/agendamentos.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>extrato</from-outcome>
+   <to-view-id>/caixa/extrato.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>credito</from-outcome>
+   <to-view-id>/caixa/credito.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>debito</from-outcome>
+   <to-view-id>/caixa/debito.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>cliente</from-outcome>
+   <to-view-id>/dados/cliente.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>colaborador</from-outcome>
+   <to-view-id>/dados/colaborador.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+</faces-config>

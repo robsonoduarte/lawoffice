@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.prime.com.tr/ui">
+    
+	<div id="dados">
+				
+		<div id="divInput">
+		
+			<div>
+				<h:outputLabel value="Colaborador:" for="colaborador"/>
+				<p:autoComplete id="colaborador"
+					value="#{creditoMB.colaborador}"
+					completeMethod="#{creditoMB.listarColaboradores}"
+					var="colaborador"
+					itemLabel="#{colaborador.nome}"
+					itemValue="#{colaborador}"
+					converter="colaboradorConverter"
+					validator="colaboradorValidator"
+					onkeypress="nofificationBarColaborador.hide()"											
+					size="30"/>
+			</div>			
+		
+			<div>
+				<h:outputLabel value="Valor:" for="valorColaborador"/>
+				<p:inputText value="#{creditoMB.valor}" 
+					id="valorColaborador"
+					validator="valorValidator"
+					onkeypress="nofificationBarColaborador.hide()" 
+					size="10"
+					/>
+			</div>
+										
+			<div style="padding-top: 12px;">			
+				<p:commandButton 
+					value="Creditar" 
+					action="#{creditoMB.creditarColaborador}"
+					onsuccess="nofificationBarColaborador.show()"
+					update="msgColaborador"					 
+					id="btnCreditarColaborador"/>				
+			</div>	
+
+		</div>
+	
+		<div style="clear: both;"></div>
+		
+	</div>				    
+
+	<ui:include src="/caixa/elements/notification-bar/notification-bar-colaborador.xhtml"></ui:include>
+			
+</ui:composition>
+
+

@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.prime.com.tr/ui">
+    
+	<div id="dados">
+					
+		<div id="divInput">
+		
+			<div>
+				<h:outputLabel value="Cliente:" for="cliente"/>
+				<p:autoComplete id="cliente"
+					value="#{debitoMB.cliente}"
+					completeMethod="#{debitoMB.listarClientes}"
+					var="cliente"
+					itemLabel="#{cliente.nome}"
+					itemValue="#{cliente}"
+					converter="clienteConverter"
+					validator="clienteValidator"
+					onkeypress="nofificationBarCliente.hide()"	
+					size="30"/>
+			</div>					
+			<div>
+				<h:outputLabel value="Valor:" for="valorCliente"/>
+				<p:inputText 
+					value="#{debitoMB.valor}" 
+					id="valorCliente" 
+					size="10"
+					onkeypress="nofificationBarCliente.hide()"
+					validator="valorValidator"
+					/>
+			</div>
+										
+			<div style="padding-top: 12px;">			
+				<p:commandButton 
+					value="Debitar" 
+					action="#{debitoMB.debitarCliente}" 
+					id="btnDebitarCliente"
+					oncomplete="nofificationBarCliente.show()"
+					update="msgCliente"
+				/>														
+			</div>	
+
+		</div>
+					
+		<div style="clear: both;"></div>
+							
+	</div>    
+
+	<ui:include src="/caixa/elements/notification-bar/notification-bar-cliente.xhtml"></ui:include>
+		
+</ui:composition>
+
+
+
