@@ -1,4 +1,4 @@
 lawoffice
 =========
 
-Open source project to automation of process in law office
+Open source project to automation the process in law office
