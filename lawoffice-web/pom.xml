@@ -17,34 +17,34 @@
   	<dependency>
   		<groupId>br.com</groupId>
   		<artifactId>lawoffice-dominio</artifactId>
-  		<version>${parent.version}</version>
+  		<version>${project.parent.version}</version>
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
   		<groupId>br.com</groupId>
   		<artifactId>lawoffice-custas</artifactId>
-  		<version>${parent.version}</version>
+  		<version>${project.parent.version}</version>
   		<type>ejb</type>
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
   		<groupId>br.com</groupId>
   		<artifactId>lawoffice-dados</artifactId>
-  		<version>${parent.version}</version>
+  		<version>${project.parent.version}</version>
   		<type>ejb</type>
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
   		<groupId>br.com</groupId>
   		<artifactId>lawoffice-caixa</artifactId>
-  		<version>${parent.version}</version>
+  		<version>${project.parent.version}</version>
   		<type>ejb</type>
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
   		<groupId>br.com</groupId>
   		<artifactId>lawoffice-agenda</artifactId>
-  		<version>${parent.version}</version>
+  		<version>${project.parent.version}</version>
   		<type>ejb</type>
   		<scope>provided</scope>
   	</dependency>  	  	  	
